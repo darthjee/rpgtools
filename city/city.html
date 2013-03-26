@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+  <title>City NPCs Calculator</title>
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <link rel='stylesheet' href='city.css' type='text/css' />
+  <script type="text/javascript" src='jquery-1.3.2.js'></script>
+  <script type="text/javascript" src='city.js'></script>
+  </head>
+
+  <body>
+    <div id="main">
+      <div id="classes">
+        <h3>Classes</h3>
+        <table id="list">
+        </table><br />
+        <form id="decision">
+          <input type="radio" name="typeCalc" value="normal" id="normalCalc" checked="checked" />
+          <label for="normalCalc">Normal</label><br/>
+          <input type="radio" name="typeCalc" value="monster" id="monsterCalc" />
+          <label for="monsterCalc">Monstruoso</label><br/>
+          <input type="submit" id="calculate" value="Calcular" onclick="return false;" />
+          <input type="submit" id="export" value="Exportar" onclick="return false;" />
+          <input type="submit" id="reset" value="Resetar" onclick="return false;" />
+        </form>
+        
+        <h3>Nova Classe</h3>
+        <form id="newClassForm" onsubmit="return false;">
+          <table id="newClass">
+            <tr>
+              <td><label for="newLabel">Abrevia&ccedil;&atilde;o</label></td>
+              <td><input type="text" id="newLabel" maxlength="4" /></td>
+            </tr>
+            <tr>
+              <td><label for="newName">Classe</label></td>
+              <td><input type="text" id="newName" /></td>
+            </tr>
+            <tr>
+              <td><label for="newValue">Valor</label></td>
+              <td><input type="text" id="newValue" /></td>
+            </tr>
+            <tr>
+              <td colspan="2"><input type="submit" id="create" value="Adcionar" onclick="return false;" /></td>
+            </tr>
+          </table>
+        </form>
+        
+        <h3>Classe Parser (classe:nivel,nivel)</h3>
+        <form id="formParser">
+          <textarea id="parser"></textarea><br />
+          <label for="autoCalc">Calcular Automaticamente</label><input type="checkbox" id="autoCalc"/>
+          <input type="submit" id="parse" value="Analisar" onclick="return false;" />
+          
+        </form>
+      </div>
+      
+      <div id="table">
+        <table>
+        </table>
+      </div>
+    </div>
+  </body>
+
+</html>

@@ -11,10 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150401212230) do
+ActiveRecord::Schema.define(version: 20150401213650) do
 
   create_table "chat_rooms", force: true do |t|
     t.string "key"
+  end
+
+  create_table "users", force: true do |t|
+    t.string "email"
   end
 
 end

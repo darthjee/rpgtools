@@ -1,1 +1,15 @@
-
+<div class="chat">
+  <div class="chat-window">
+  </div>
+  <aside class="users-list">
+    <%
+      room.sessions.each do |session|
+        %>
+          <a><%= session.nick %></a>
+        <%
+      end
+    %>
+  </aside>
+  <div class="chat-bar">
+  </div>
+</div>

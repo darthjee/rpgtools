@@ -3,7 +3,7 @@
     <%
       room.messages.each do |message|
         %>
-          <p><span><%= message.session.nick %>:</span> <%= message.text %><p>
+        <%= show_message(message) %>
         <%
       end
     %>

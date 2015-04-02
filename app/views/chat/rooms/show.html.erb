@@ -3,7 +3,7 @@
     <%
       room.messages.each do |message|
         %>
-        <%= show_message(message) %>
+          <%= show_message(message) %>
         <%
       end
     %>
@@ -18,5 +18,10 @@
     %>
   </aside>
   <div class="chat-bar">
+    <%= simple_form_for(message, url: room_messages_path(room.key)) do |f| %>
+      <%= f.hidden_field :action, value: :say %>
+      <%= f.text_field :text, :maxlength => 40, :size => 50 %>
+      <%= f.submit 'Enviar' %>
+    <% end %>
   </div>
 </div>

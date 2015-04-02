@@ -1,6 +1,6 @@
 class Chat::RoomsController < ApplicationController
   def show
-    render :show, locals: { room: room }
+    render :show, locals: { room: room, message: Chat::Message.new }
   end
 
   private

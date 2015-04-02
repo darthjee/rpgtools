@@ -4,6 +4,7 @@ class CreateChatSessions < ActiveRecord::Migration
       t.string :nick
       t.integer :room_id
       t.integer :user_id
+      t.timestamps
     end
   end
 end

@@ -14,26 +14,34 @@
 ActiveRecord::Schema.define(version: 20150402014703) do
 
   create_table "chat_messages", force: true do |t|
-    t.string  "text",                             null: false
-    t.string  "action",           default: "say", null: false
-    t.integer "room_id",                          null: false
-    t.integer "session_id",                       null: false
-    t.integer "target_id"
-    t.string  "action_variables"
+    t.string   "text",                             null: false
+    t.string   "action",           default: "say", null: false
+    t.integer  "room_id",                          null: false
+    t.integer  "session_id",                       null: false
+    t.integer  "target_id"
+    t.string   "action_variables"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "chat_rooms", force: true do |t|
-    t.string "key"
+    t.string   "key"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "chat_sessions", force: true do |t|
-    t.string  "nick"
-    t.integer "room_id"
-    t.integer "user_id"
+    t.string   "nick"
+    t.integer  "room_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|
-    t.string "email"
+    t.string   "email"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end

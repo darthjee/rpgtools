@@ -7,6 +7,7 @@ class CreateChatMessages < ActiveRecord::Migration
       t.integer :session_id, null: false
       t.integer :target_id, null: true
       t.string :action_variables, null: true
+      t.timestamps
     end
   end
 end

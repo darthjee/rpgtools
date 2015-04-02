@@ -13,7 +13,7 @@ class Chat::MessagesController < ApplicationController
   end
 
   def chat_session
-    Chat::Session.find_by(user: user_logged, room: room)
+    Chat::Session.find_by(user: logged_user, room: room)
   end
 
   def room

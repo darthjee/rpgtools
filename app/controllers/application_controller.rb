@@ -1,9 +1,4 @@
 class ApplicationController < ActionController::Base
-  # Prevent CSRF attacks by raising an exception.
-  # For APIs, you may want to use :null_session instead.
+  include UserLoginConcern
   protect_from_forgery with: :exception
-
-  def user_logged
-    User.last
-  end
 end

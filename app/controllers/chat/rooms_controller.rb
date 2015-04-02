@@ -1,4 +1,6 @@
 class Chat::RoomsController < ApplicationController
+  before_action :require_logged
+
   def show
     render :show, locals: { room: room, message: Chat::Message.new }
   end

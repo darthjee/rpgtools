@@ -1,0 +1,4 @@
+<%= simple_form_for(user, url: login_index_path(redirect_to: redirect_path)) do |f| %>
+  <%= f.text_field :email, :maxlength => 40, :size => 50 %>
+  <%= f.submit 'Enviar' %>
+<% end %>

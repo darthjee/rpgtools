@@ -1,4 +1,4 @@
-class Chat::RoomsController < ApplicationController
+class Chat::RoomsController < Chat::BaseController
   before_action :require_logged
 
   def show

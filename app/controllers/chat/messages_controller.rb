@@ -1,7 +1,7 @@
-class Chat::MessagesController < ApplicationController
+class Chat::MessagesController < Chat::BaseController
   def create
     Chat::Message.create(message_params)
-    redirect_to room_path(room.key)
+    redirect_to chat_room_path(room.key)
   end
 
   private

@@ -17,7 +17,7 @@ module UserLoginConcern
 
   def logged_user
     return nil unless credential_cookie.present?
-    User.find_by email: cookies.signed[:credentials]
+    User.find_by email: credential_cookie
   end
 
   def credential_cookie

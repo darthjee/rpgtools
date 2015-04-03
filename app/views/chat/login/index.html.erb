@@ -1,7 +1,9 @@
 <%= simple_form_for(chat_session, url: chat_room_login_index_path(redirect_to: redirect_path)) do |form| %>
   <%= form.simple_fields_for :user, User.new do |f| %>
+    <%= f.label :email %>
     <%= f.text_field :email, :maxlength => 40, :size => 50 %>
   <% end %>
+  <%= form.label :nick %>
   <%= form.text_field :nick, :maxlength => 40, :size => 50 %>
   <%= form.submit 'Enviar' %>
 <% end %>

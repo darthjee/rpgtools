@@ -14,7 +14,7 @@ module UserLoginConcern
     User.find_by email: credential_cookie
   end
 
-  def login(user)
+  def sign_in(user)
     cookies.signed[:credentials] = user.email
   end
 

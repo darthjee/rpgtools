@@ -4,7 +4,7 @@ class LoginController < ApplicationController
   end
 
   def create
-    login(User.find_or_create_by(login_params))
+    sign_in(User.find_or_create_by(login_params))
     redirect_to redirect_path
   end
 

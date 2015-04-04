@@ -29,7 +29,7 @@ describe UserLoginConcern do
 
     context 'when user is logged' do
       before do
-        controller.login(user)
+        controller.sign_in(user)
       end
 
       it 'does not redirect to redirect_login_path' do
@@ -43,7 +43,7 @@ describe UserLoginConcern do
 
     context 'when user is not logged' do
       it 'store the user email encrypted' do
-        controller.login(user)
+        controller.sign_in(user)
         expect(cookies.signed[:credentials]).to eq(user.email)
       end
     end
@@ -55,7 +55,7 @@ describe UserLoginConcern do
     end
 
     context 'user is logged' do
-      before { controller.login(user) }
+      before { controller.sign_in(user) }
       it { expect(controller.logged_user).to eq(user) }
     end
   end

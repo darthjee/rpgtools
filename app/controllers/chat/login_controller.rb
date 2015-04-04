@@ -1,11 +1,13 @@
 class Chat::LoginController < LoginController
-
   def index
-    render :index, locals: { chat_session: Chat::Session.new, redirect_path: redirect_path }
+    render :index, locals: {
+      chat_session: Chat::Session.new,
+      redirect_path: redirect_path
+    }
   end
 
   def create
-    login(created_session.user)
+    sign_in(created_session.user)
     redirect_to redirect_path
   end
 
@@ -27,7 +29,8 @@ class Chat::LoginController < LoginController
   end
 
   def user_created
-    User.find_or_create_by(params.require(:chat_session).require(:user).permit(:email))
+    email = params.require(:chat_session).require(:user).permit(:email)
+    User.find_or_create_by(email)
   end
 
   def room

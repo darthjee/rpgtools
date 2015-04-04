@@ -1,0 +1,6 @@
+user1:
+  id: 1
+  email: 'email1@server.com'
+user2:
+  id: 2
+  email: 'email2@server.com.br'

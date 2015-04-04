@@ -14,6 +14,7 @@ describe EmailValidator do
   %w(
     user@email.com user.name@email.com user.name@email.com
     user_name@email.com user_name@email.com.br user2@email.com
+    user+2name@server.com
   ).each do |valid_email|
     context "object with #{valid_email} for email" do
       let(:email) { valid_email }
@@ -24,6 +25,7 @@ describe EmailValidator do
 
   %w(
     user @server.com .name@email.com 2user@email.com
+    user_2name@email.com user.2name@email.com 2user@email.com
   ).each do |invalid_email|
     context "object with #{invalid_email} for email" do
       let(:email) { invalid_email }

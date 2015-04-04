@@ -34,6 +34,7 @@ group :development, :test do
   gem 'webmock'
   gem 'zonebie'
   gem 'simplecov'
+  gem 'rspec-collection_matchers'
 end
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

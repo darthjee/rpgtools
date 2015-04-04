@@ -1,5 +1,5 @@
 class EmailValidator < ActiveModel::EachValidator
-  REGEXP = /^[\w]+([_.+][\w\d]+)*@[\w]+([._]?[\w\d]+)*(\.[\w\d]{2,3}){1,2}$/
+  REGEXP = /^[a-z]+([_.+]?[\w\d]+)*@[\w]+([._]?[\w\d]+)*(\.[\w\d]{2,3}){1,2}$/i
 
   def validate_each(record, attribute, value)
     return if value =~ REGEXP

@@ -4,6 +4,6 @@ module Chat::UserLoginConcern
   private
 
   def redirect_login_path
-    chat_room_login_index_path(room.key, redirect_to: request.path)
+    new_chat_room_login_path(room.key, redirect_to: request.path)
   end
 end

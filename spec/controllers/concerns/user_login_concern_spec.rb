@@ -19,7 +19,7 @@ describe UserLoginConcern do
 
   describe 'require_logged' do
     context 'when user is not logged' do
-      let(:redirect) { login_index_path(redirect_to: '/anonymous') }
+      let(:redirect) { new_login_path(redirect_to: '/anonymous') }
 
       it 'redirects to redirect_login_path' do
         get :index

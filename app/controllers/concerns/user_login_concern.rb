@@ -21,7 +21,7 @@ module UserLoginConcern
   private
 
   def redirect_login_path
-    login_index_path(redirect_to: request.path)
+    new_login_path(redirect_to: request.path)
   end
 
   def credential_cookie

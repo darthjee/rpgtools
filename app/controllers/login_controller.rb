@@ -1,6 +1,6 @@
 class LoginController < ApplicationController
-  def index
-    render :index, locals: { user: User.new, redirect_path: redirect_path }
+  def new
+    render :new, locals: { user: User.new, redirect_path: redirect_path }
   end
 
   def create

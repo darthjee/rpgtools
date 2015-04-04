@@ -1,6 +1,6 @@
 class Chat::LoginController < LoginController
-  def index
-    render :index, locals: {
+  def new
+    render :new, locals: {
       chat_session: Chat::Session.new,
       redirect_path: redirect_path
     }
@@ -18,10 +18,10 @@ class Chat::LoginController < LoginController
   end
 
   def session_creation_params
-    session_params.merge({
+    session_params.merge(
       user: user_created,
       room: room
-    })
+    )
   end
 
   def session_params

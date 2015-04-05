@@ -1,4 +1,6 @@
 shared_examples 'a controller that handles user login' do
+  before { controller.sign_off }
+
   context 'when sending redirect path' do
     it 'creates the user' do
       expect { get :create, parameters }.to change { User.count }.by(1)
@@ -55,10 +57,7 @@ end
 
 shared_examples 'a controller that requires logged user' do
   let(:user) { users(:user1) }
-
-  before do
-    cookies.delete(:credentials)
-  end
+  before { controller.sign_off }
 
   describe 'require_logged' do
     context 'when user is not logged' do

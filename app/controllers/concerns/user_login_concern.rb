@@ -18,6 +18,10 @@ module UserLoginConcern
     cookies.signed[:credentials] = user.email
   end
 
+  def sign_off
+    cookies.delete(:credentials)
+  end
+
   private
 
   def redirect_login_path

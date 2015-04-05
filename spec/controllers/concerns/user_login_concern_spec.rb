@@ -12,7 +12,6 @@ describe UserLoginConcern do
   end
 
   it_behaves_like 'a controller that requires logged user' do
-    let(:parameters) { {} }
     let(:redirect) { new_login_path(redirect_to: '/anonymous') }
   end
 end

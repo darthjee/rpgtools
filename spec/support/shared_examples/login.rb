@@ -62,7 +62,7 @@ shared_examples 'a controller that requires logged user' do
   describe 'require_logged' do
     context 'when user is not logged' do
       it 'redirects to redirect_login_path' do
-        get :index, parameters
+        get :index, (try(:parameters) || {})
         expect(response).to redirect_to(redirect)
       end
     end
@@ -73,7 +73,7 @@ shared_examples 'a controller that requires logged user' do
       end
 
       it 'does not redirect to redirect_login_path' do
-        get :index, parameters
+        get :index, (try(:parameters) || {})
         expect(response).not_to be_a_redirect
       end
     end

@@ -25,7 +25,7 @@ shared_examples 'a controller that handles user login' do
   end
 end
 
-shared_examples 'a controller that controls user session' do
+shared_examples 'a controller that requires logged user' do
   let(:user) { users(:user1) }
 
   before do

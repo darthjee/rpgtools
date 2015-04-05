@@ -4,3 +4,6 @@ user1:
 user2:
   id: 2
   email: 'email2@server.com.br'
+with_chat_session:
+  id: 3
+  email: 'with_session@server.com.br'

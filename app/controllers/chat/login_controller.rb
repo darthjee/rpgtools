@@ -14,7 +14,11 @@ class Chat::LoginController < LoginController
   private
 
   def created_session
-    Chat::Session.create session_creation_params
+    chat_session || Chat::Session.create(session_creation_params)
+  end
+
+  def chat_session
+    Chat::Session.find_by(user: user_created, room: room)
   end
 
   def session_creation_params

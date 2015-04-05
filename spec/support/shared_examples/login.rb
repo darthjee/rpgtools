@@ -9,6 +9,34 @@ shared_examples 'a controller that handles user login' do
       get :create, parameters
       expect(response).to redirect_to(redirect_path)
     end
+
+    it 'logs in the user' do
+      expect do
+        get :create, parameters
+      end.to change { controller.logged_user }
+      expect(controller.logged_user.email).to eq(email)
+    end
+  end
+
+  context 'when user already exists' do
+    let(:user) { users(:user1) }
+    let(:email) { user.email }
+
+    it 'does not create a new user' do
+      expect { get :create, parameters }.not_to change { User.count }
+    end
+
+    it 'redirects to given redirect path' do
+      get :create, parameters
+      expect(response).to redirect_to(redirect_path)
+    end
+
+    it 'logs in the user' do
+      expect do
+        get :create, parameters
+      end.to change { controller.logged_user }
+      expect(controller.logged_user.email).to eq(email)
+    end
   end
 
   context 'when sending redirect path' do

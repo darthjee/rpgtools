@@ -34,10 +34,8 @@ shared_examples 'a controller that controls user session' do
 
   describe 'require_logged' do
     context 'when user is not logged' do
-      let(:redirect) { new_login_path(redirect_to: '/anonymous') }
-
       it 'redirects to redirect_login_path' do
-        get :index
+        get :index, parameters
         expect(response).to redirect_to(redirect)
       end
     end
@@ -48,7 +46,7 @@ shared_examples 'a controller that controls user session' do
       end
 
       it 'does not redirect to redirect_login_path' do
-        get :index
+        get :index, parameters
         expect(response).not_to be_a_redirect
       end
     end

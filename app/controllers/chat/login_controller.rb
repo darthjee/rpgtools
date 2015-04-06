@@ -1,4 +1,6 @@
 class Chat::LoginController < LoginController
+  include Chat::RoomConcern
+
   def new
     render :new, locals: {
       chat_session: Chat::Session.new,
@@ -31,9 +33,5 @@ class Chat::LoginController < LoginController
   def user_created
     email = params.require(:chat_session).require(:user).permit(:email)
     User.find_or_create_by(email)
-  end
-
-  def room
-    Chat::Room.find_or_create_by key: params.require(:room_id)
   end
 end

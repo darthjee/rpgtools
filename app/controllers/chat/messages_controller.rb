@@ -1,4 +1,7 @@
-class Chat::MessagesController < Chat::BaseController
+class Chat::MessagesController < ApplicationController
+  include Chat::RoomConcern
+  include Chat::UserLoginConcern
+
   def create
     Chat::Message.create(message_params)
     redirect_to chat_room_path(room.key)
@@ -14,9 +17,5 @@ class Chat::MessagesController < Chat::BaseController
 
   def chat_session
     Chat::Session.find_by(user: logged_user, room: room)
-  end
-
-  def room
-    Chat::Room.find_or_create_by key: params.require(:room_id)
   end
 end

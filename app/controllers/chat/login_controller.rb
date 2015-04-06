@@ -7,20 +7,14 @@ class Chat::LoginController < LoginController
   end
 
   def create
-    sign_in(created_session.user)
+    sign_in(chat_session.user)
     redirect_to redirect_path
   end
 
   private
 
-  def created_session
-    (chat_session || Chat::Session.create(session_creation_params)).tap do |s|
-      s.update(session_params)
-    end
-  end
-
   def chat_session
-    Chat::Session.find_by(user: user_created, room: room)
+    Chat::Session.create_or_update(session_creation_params)
   end
 
   def session_creation_params

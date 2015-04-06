@@ -3,7 +3,7 @@ require 'spec_helper'
 describe Chat::LoginController do
   describe 'create' do
     let(:email) { 'new_user@server.com' }
-    let(:user_nick) { 'user_nick' }
+    let(:user_nick) { 'john' }
     let(:redirect_path) { '/new_path' }
     let(:room) { chat_rooms(:default) }
     let(:parameters) do
@@ -47,10 +47,30 @@ describe Chat::LoginController do
         let(:user) { users(:with_chat_session) }
         let(:email) { user.email }
 
-        it 'does not create a session for the user' do
-          expect do
-            get :create, parameters
-          end.not_to change { Chat::Session.count }
+        context 'when sending the same nick' do
+          it 'does not create a session for the user' do
+            expect do
+              get :create, parameters
+            end.not_to change { Chat::Session.count }
+          end
+        end
+
+        context 'when sending a new nick' do
+          let(:chat_session) { chat_sessions(:default_with_session) }
+          let(:id) { chat_session.id }
+          let(:user_nick) { 'new_john' }
+
+          it 'does not create a session for the user' do
+            expect do
+              get :create, parameters
+            end.not_to change { Chat::Session.count }
+          end
+
+          it 'alters the user session with the given nick' do
+            expect do
+              get :create, parameters
+            end.to change { Chat::Session.find(id).nick }
+          end
         end
       end
     end

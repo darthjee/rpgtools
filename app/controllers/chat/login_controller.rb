@@ -14,7 +14,9 @@ class Chat::LoginController < LoginController
   private
 
   def created_session
-    chat_session || Chat::Session.create(session_creation_params)
+    (chat_session || Chat::Session.create(session_creation_params)).tap do |s|
+      s.update(session_params)
+    end
   end
 
   def chat_session

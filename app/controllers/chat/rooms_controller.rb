@@ -1,6 +1,5 @@
 class Chat::RoomsController < ApplicationController
   include Chat::RoomConcern
-  include Chat::UserLoginConcern
 
   before_action :require_logged
 

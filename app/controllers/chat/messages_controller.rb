@@ -1,6 +1,5 @@
 class Chat::MessagesController < ApplicationController
   include Chat::RoomConcern
-  include Chat::UserLoginConcern
 
   def create
     Chat::Message.create(message_params)

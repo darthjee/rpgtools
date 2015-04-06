@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe Chat::UserLoginConcern do
+describe Chat::RoomConcern do
   controller do
-    include Chat::UserLoginConcern
+    include Chat::RoomConcern
 
     before_action :require_logged
 

@@ -2,6 +2,8 @@ class Chat::Session < ActiveRecord::Base
   belongs_to :user
   belongs_to :room
 
+  validates_presence_of :user, :room, :nick
+
   def self.create_or_update(attributes)
     nick = attributes.delete(:nick)
 

@@ -13,8 +13,4 @@ class Chat::MessagesController < ApplicationController
       :text, :action
     ).merge(room: room, session: chat_session)
   end
-
-  def chat_session
-    Chat::Session.find_by(user: logged_user, room: room)
-  end
 end

@@ -4,7 +4,7 @@ class LoginController < ApplicationController
   end
 
   def create
-    sign_in(User.find_or_create_by(login_params))
+    sign_in(user_created)
     redirect_to redirect_path
   end
 
@@ -16,5 +16,9 @@ class LoginController < ApplicationController
 
   def redirect_path
     params[:redirect_to] || '/'
+  end
+
+  def user_created
+    User.find_or_create_by(login_params)
   end
 end

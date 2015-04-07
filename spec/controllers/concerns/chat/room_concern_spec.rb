@@ -9,12 +9,6 @@ describe Chat::RoomConcern do
     def index
       render nothing: true
     end
-
-    private
-
-    def room
-      Chat::Room.find_or_create_by key: params.require(:room_id)
-    end
   end
 
   let(:room) { chat_rooms(:default) }

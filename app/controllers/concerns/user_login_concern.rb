@@ -10,6 +10,10 @@ module UserLoginConcern
   end
 
   def logged_user
+    @logged_user ||= fetch_logged_user
+  end
+
+  def fetch_logged_user
     return nil unless credential_cookie.present?
     User.find_by email: credential_cookie
   end

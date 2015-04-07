@@ -12,7 +12,7 @@ module Chat::RoomConcern
   end
 
   def chat_session
-    Chat::Session.find_by(user: logged_user, room: room)
+    @chat_session ||= Chat::Session.find_by(user: logged_user, room: room)
   end
 
   def room_key

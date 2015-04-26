@@ -3,5 +3,5 @@ class Chat::Message < ActiveRecord::Base
   belongs_to :session
   belongs_to :target, class: Chat::Session
 
-  validates_presence_of :room
+  validates_presence_of :room, :session, :text
 end

@@ -2,5 +2,5 @@ first:
   room_id: 1
   session_id: 1
   target: nil
-  text: ''
+  text: 'test message'
   action_variables: nil

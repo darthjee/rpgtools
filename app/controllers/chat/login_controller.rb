@@ -30,8 +30,7 @@ class Chat::LoginController < LoginController
     params.require(:chat_session).permit(:nick)
   end
 
-  def user_created
-    email = params.require(:chat_session).require(:user).permit(:email)
-    User.find_or_create_by(email)
+  def login_params
+    params.require(:chat_session).require(:user).permit(:email)
   end
 end

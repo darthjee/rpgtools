@@ -11,6 +11,10 @@ module Chat::RoomConcern
     @room ||= Chat::Room.find_or_create_by key: room_key
   end
 
+  def chat_session
+    @chat_session ||= Chat::Session.find_by(user: logged_user, room: room)
+  end
+
   def room_key
     @room_key ||= (params[:room_id] || params.require(:id))
   end

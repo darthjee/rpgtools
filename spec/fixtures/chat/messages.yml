@@ -1,0 +1,6 @@
+first:
+  room_id: 1
+  session_id: 1
+  target: nil
+  text: ''
+  action_variables: nil
